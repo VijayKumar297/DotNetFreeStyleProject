@@ -8,6 +8,7 @@ trigger:
 
 pool: mylocalpool
 
+
 variables:
   solution: '**/*.sln'
   buildPlatform: 'Any CPU'
@@ -31,3 +32,7 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'publish'
+    publishWebProjects: true
